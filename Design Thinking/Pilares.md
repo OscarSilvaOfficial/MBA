@@ -10,7 +10,7 @@
 
 ## <b>2 - Análise e interpretação</b>
 
-* Sempre se dever olhar o problema, para entender quais os seus níveis.
+* Análise dos dados coletados.
 
 
 ## <b>3 - Ideação(idéias)</b>
