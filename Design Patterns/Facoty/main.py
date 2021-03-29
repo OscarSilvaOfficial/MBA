@@ -1,4 +1,4 @@
 from factory import Create
 
-fatory = Create().multiply_random_number()
-print(fatory)
+fatory = Create()
+print(fatory.multiply_random_number())
