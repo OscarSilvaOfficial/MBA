@@ -4,11 +4,11 @@ import java.time.LocalDate;
 
 public class Conta {
 
-    protected int numero;
-    protected String nome;
-    protected LocalDate nascimento;
-    protected String documento;
-    protected double saldo;
+    private int numero;
+    private String nome;
+    private LocalDate nascimento;
+    private String documento;
+    private double saldo;
 
     public Conta() {
     }
@@ -18,26 +18,6 @@ public class Conta {
         this.nome = nome;
         this.nascimento = nascimento;
         this.documento = documento;
-        this.saldo = saldo;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setNascimento(LocalDate nascimento) {
-        this.nascimento = nascimento;
-    }
-
-    public void setDocumento(String documento) {
-        this.documento = documento;
-    }
-
-    public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
