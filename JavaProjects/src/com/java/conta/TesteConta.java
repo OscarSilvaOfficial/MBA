@@ -1,24 +1,41 @@
 package com.java.conta;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TesteConta {
 
+    public static Conta oscar = new ContaCorrente(123, "Oscar", LocalDate.now(), "456", 1000);
+
+    public static void print(List<Object> num) {
+        System.out.println(num);
+    }
+
     public static void main(String[] args) {
 
-        Conta oscar = new ContaCorrente(123, "Oscar", LocalDate.now(), "456", 1000);
-//        Conta dinora = new ContaCorrente(789, "Dinorá", LocalDate.now(), "321", 500);
+        for (int i=0; i <= 10; i++){
+            oscar.sac(100);
+        }
 
-        oscar.sac(100);
-        System.out.println(oscar.getSaldo());
-//        System.out.println(dinora.getSaldo());
-//
-//        oscar.transferir(501, dinora);
-//
-//        System.out.println(oscar.getSaldo());
-//        System.out.println(dinora.getSaldo());
-//
-//        Conta.test();
+        List<Object> extrato = new ArrayList<>();
+        List<Object> test = new ArrayList<>();
+
+        int c = 0;
+
+        try {
+            while(oscar.getSaldo() < 0) {
+                oscar.depositar(10);
+                extrato.add(oscar.getSaldo());
+                c++;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        print(extrato);
+
+
     }
 
 }
