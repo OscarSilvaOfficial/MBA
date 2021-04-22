@@ -1,4 +1,4 @@
-package model.user;
+package model;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -13,6 +13,16 @@ public class User {
     private String firstName;
     private String lastName;
     private Integer age;
+
+    @OneToOne
+    private Permission permission;
+
+    @ManyToOne
+    private Group group;
+
+    public Permission getPermission() {
+        return permission;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -33,6 +43,10 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public void setPermission(Permission permission) {
+        this.permission = permission;
     }
 
     public String getFirstName() {

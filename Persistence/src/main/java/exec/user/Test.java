@@ -1,16 +1,16 @@
 package exec.user;
 
-import model.user.User;
+import model.Permission;
+import model.User;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class Test {
 
     public static void main(String[] args) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = Persistence.createEntityManagerFactory("test").createEntityManager();
+        Permission permission = entityManager.find(Permission.class, 1);
 
         // SELECT
 //        User user = entityManager.find(User.class, 16);
@@ -18,14 +18,15 @@ public class Test {
 
 
         // INSERT
-//        User user = new User();
-//        user.setFirstName("TESTE");
-//        user.setLastName("da Silva");
-//        user.setAge(23);
+        User user = new User();
+        user.setFirstName("Oscar");
+        user.setLastName("da Silva");
+        user.setAge(23);
+        user.setPermission(permission);
 
         // ALTER
-        User user = entityManager.find(User.class,7);
-        user.setLastName("blabla'");
+        //User user = entityManager.find(User.class,7);
+        //user.setLastName("blabla");
 
         entityManager.getTransaction().begin();
         entityManager.persist(user); // INSERT e ALTER
@@ -34,7 +35,6 @@ public class Test {
 
         // Close conn
         entityManager.close();
-        entityManagerFactory.close();
     }
 
 }
